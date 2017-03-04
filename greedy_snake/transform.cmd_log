@@ -1,0 +1,2 @@
+vhdtdtfi -lib work E:/greedy_snake/transform.v -lang verilog -prj greedy_snake -o transform.spl -module transform -template E:/ISE14-4/14.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 transform.spl E:/greedy_snake/transform.sym 

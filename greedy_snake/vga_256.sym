@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="vga_256">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2016-1-6T3:57:20</timestamp>
+    <attr value="vga_256" name="VeriModel" />
+    <pin polarity="Input" x="0" y="-416" name="clk" />
+    <pin polarity="Input" x="0" y="-320" name="rst" />
+    <pin polarity="Input" x="0" y="-224" name="nvga_r" />
+    <pin polarity="Input" x="0" y="-128" name="nvga_g" />
+    <pin polarity="Input" x="0" y="-32" name="nvga_b" />
+    <pin polarity="Output" x="384" y="-416" name="hsync" />
+    <pin polarity="Output" x="384" y="-352" name="vsync" />
+    <pin polarity="Output" x="384" y="-288" name="vga_r" />
+    <pin polarity="Output" x="384" y="-224" name="vga_g" />
+    <pin polarity="Output" x="384" y="-160" name="vga_b" />
+    <pin polarity="Output" x="384" y="-96" name="x_dis(9:0)" />
+    <pin polarity="Output" x="384" y="-32" name="y_dis(9:0)" />
+    <graph>
+        <rect width="256" x="64" y="-448" height="448" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-456" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-416" type="pin clk" />
+        <line x2="0" y1="-416" y2="-416" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-320" type="pin rst" />
+        <line x2="0" y1="-320" y2="-320" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-224" type="pin nvga_r" />
+        <line x2="0" y1="-224" y2="-224" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-128" type="pin nvga_g" />
+        <line x2="0" y1="-128" y2="-128" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin nvga_b" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-416" type="pin hsync" />
+        <line x2="384" y1="-416" y2="-416" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-352" type="pin vsync" />
+        <line x2="384" y1="-352" y2="-352" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-288" type="pin vga_r" />
+        <line x2="384" y1="-288" y2="-288" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-224" type="pin vga_g" />
+        <line x2="384" y1="-224" y2="-224" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-160" type="pin vga_b" />
+        <line x2="384" y1="-160" y2="-160" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-96" type="pin x_dis(9:0)" />
+        <rect width="64" x="320" y="-108" height="24" />
+        <line x2="384" y1="-96" y2="-96" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin y_dis(9:0)" />
+        <rect width="64" x="320" y="-44" height="24" />
+        <line x2="384" y1="-32" y2="-32" x1="320" />
+    </graph>
+</symbol>

@@ -1,0 +1,5 @@
+set -tmpdir "E:/greedy_snake/xst/projnav.tmp"
+set -xsthdpdir "E:/greedy_snake/xst"
+elaborate
+-ifn transform.prj
+-ifmt mixed

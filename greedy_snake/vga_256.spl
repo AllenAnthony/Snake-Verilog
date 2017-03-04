@@ -1,0 +1,18 @@
+[Inputs]
+clk
+rst
+nvga_r
+nvga_g
+nvga_b
+[Outputs]
+hsync
+vsync
+vga_r
+vga_g
+vga_b
+=x_dis[9:0]=
+=y_dis[9:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel vga_256
+

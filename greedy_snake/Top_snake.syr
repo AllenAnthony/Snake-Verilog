@@ -1,0 +1,910 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.22 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.22 secs
+ 
+--> Reading design: Top_snake.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Top_snake.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Top_snake"
+Output Format                      : NGC
+Target Device                      : xc3s200-5-ft256
+
+---- Source Options
+Top Module Name                    : Top_snake
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "VGA.v" in library work
+Compiling verilog file "transform.v" in library work
+Module <vga_256> compiled
+Compiling verilog file "m_snake.v" in library work
+Module <transform> compiled
+Compiling verilog file "Anti_jitter.v" in library work
+Module <moving_snake> compiled
+Compiling verilog file "Top_snake.vf" in library work
+Module <Anti_jitter> compiled
+Module <Top_snake> compiled
+No errors in compilation
+Analysis of file <"Top_snake.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Top_snake> in library <work>.
+
+Analyzing hierarchy for module <moving_snake> in library <work> with parameters.
+	T1S = "00000010011000100101100111111111"
+	T2S = "00000001001100010010110011111111"
+	idle = "00001"
+	snake_down = "00100"
+	snake_left = "01000"
+	snake_right = "10000"
+	snake_up = "00010"
+
+Analyzing hierarchy for module <transform> in library <work>.
+
+Analyzing hierarchy for module <vga_256> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Top_snake>.
+WARNING:Xst:2211 - "Anti_jitter.v" line 182: Instantiating black box module <Anti_jitter>.
+Module <Top_snake> is correct for synthesis.
+ 
+Analyzing module <moving_snake> in library <work>.
+	T1S = 32'sb00000010011000100101100111111111
+	T2S = 32'sb00000001001100010010110011111111
+	idle = 5'b00001
+	snake_down = 5'b00100
+	snake_left = 5'b01000
+	snake_right = 5'b10000
+	snake_up = 5'b00010
+Module <moving_snake> is correct for synthesis.
+ 
+Analyzing module <transform> in library <work>.
+Module <transform> is correct for synthesis.
+ 
+Analyzing module <vga_256> in library <work>.
+Module <vga_256> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <moving_snake>.
+    Related source file is "m_snake.v".
+    Found finite state machine <FSM_0> for signal <moving_cstate>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 14                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst_n                     (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 00001                                          |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_1> for signal <i>.
+    -----------------------------------------------------------------------
+    | States             | 14                                             |
+    | Transitions        | 802                                            |
+    | Inputs             | 36                                             |
+    | Outputs            | 14                                             |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst_n                     (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 26-bit up counter for signal <count>.
+    Found 11-bit up counter for signal <count0>.
+    Found 11-bit up counter for signal <count1>.
+    Found 26-bit up counter for signal <count2>.
+    Found 6-bit comparator equal for signal <i$cmp_eq0001> created at line 298.
+    Found 6-bit comparator equal for signal <i$cmp_eq0002> created at line 298.
+    Found 6-bit comparator equal for signal <i$cmp_eq0007> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0008> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0009> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0010> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0011> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0012> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0013> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0014> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0015> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0016> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0017> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0018> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0019> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0020> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0021> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0022> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0023> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0024> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0025> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0026> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0027> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0028> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0029> created at line 314.
+    Found 6-bit comparator equal for signal <i$cmp_eq0030> created at line 314.
+    Found 1-bit register for signal <over>.
+    Found 6-bit register for signal <reg_x0>.
+    Found 6-bit register for signal <reg_x1>.
+    Found 6-bit addsub for signal <reg_x1$share0000> created at line 258.
+    Found 6-bit register for signal <reg_x10>.
+    Found 6-bit register for signal <reg_x11>.
+    Found 6-bit register for signal <reg_x12>.
+    Found 6-bit register for signal <reg_x13>.
+    Found 6-bit register for signal <reg_x14>.
+    Found 6-bit register for signal <reg_x15>.
+    Found 6-bit register for signal <reg_x2>.
+    Found 6-bit register for signal <reg_x3>.
+    Found 6-bit register for signal <reg_x4>.
+    Found 6-bit register for signal <reg_x5>.
+    Found 6-bit register for signal <reg_x6>.
+    Found 6-bit register for signal <reg_x7>.
+    Found 6-bit register for signal <reg_x8>.
+    Found 6-bit register for signal <reg_x9>.
+    Found 6-bit register for signal <reg_y0>.
+    Found 6-bit register for signal <reg_y1>.
+    Found 6-bit addsub for signal <reg_y1$share0000> created at line 258.
+    Found 6-bit register for signal <reg_y10>.
+    Found 6-bit register for signal <reg_y11>.
+    Found 6-bit register for signal <reg_y12>.
+    Found 6-bit register for signal <reg_y13>.
+    Found 6-bit register for signal <reg_y14>.
+    Found 6-bit register for signal <reg_y15>.
+    Found 6-bit register for signal <reg_y2>.
+    Found 6-bit register for signal <reg_y3>.
+    Found 6-bit register for signal <reg_y4>.
+    Found 6-bit register for signal <reg_y5>.
+    Found 6-bit register for signal <reg_y6>.
+    Found 6-bit register for signal <reg_y7>.
+    Found 6-bit register for signal <reg_y8>.
+    Found 6-bit register for signal <reg_y9>.
+    Found 1-bit register for signal <win>.
+    Summary:
+	inferred   2 Finite State Machine(s).
+	inferred   4 Counter(s).
+	inferred 146 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  26 Comparator(s).
+Unit <moving_snake> synthesized.
+
+
+Synthesizing Unit <transform>.
+    Related source file is "transform.v".
+    Register <red> equivalent to <green> has been removed
+    Found 12-bit adder carry out for signal <add0000$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0001$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0002$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0003$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0004$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0005$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0006$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0007$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0008$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0009$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0010$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0011$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0012$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0013$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0014$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0015$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0016$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0017$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0018$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0019$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0020$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0021$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0022$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0023$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0024$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0025$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0026$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0027$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0028$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0029$addsub0000> created at line 149.
+    Found 12-bit adder carry out for signal <add0030$addsub0000> created at line 149.
+    Found 11-bit adder carry out for signal <add0031$addsub0000> created at line 149.
+    Found 1-bit register for signal <blue>.
+    Found 10-bit comparator greatequal for signal <blue$cmp_ge0000> created at line 82.
+    Found 10-bit comparator greatequal for signal <blue$cmp_ge0001> created at line 82.
+    Found 10-bit comparator lessequal for signal <blue$cmp_le0000> created at line 82.
+    Found 10-bit comparator lessequal for signal <blue$cmp_le0001> created at line 82.
+    Found 10-bit comparator lessequal for signal <blue$cmp_le0002> created at line 82.
+    Found 10-bit comparator lessequal for signal <blue$cmp_le0003> created at line 82.
+    Found 1-bit register for signal <clk2>.
+    Found 1-bit register for signal <green>.
+    Found 12-bit adder carry out for signal <green$addsub0032> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0033> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0034> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0035> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0036> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0037> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0038> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0039> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0040> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0041> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0042> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0043> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0044> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0045> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0046> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0047> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0048> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0049> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0050> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0051> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0052> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0053> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0054> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0055> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0056> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0057> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0058> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0059> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0060> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0061> created at line 149.
+    Found 12-bit adder carry out for signal <green$addsub0062> created at line 149.
+    Found 11-bit adder carry out for signal <green$addsub0063> created at line 149.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0000> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0001> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0002> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0003> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0004> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0005> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0006> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0007> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0008> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0009> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0010> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0011> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0012> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0013> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0014> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0015> created at line 88.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0016> created at line 117.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0017> created at line 117.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0018> created at line 117.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0019> created at line 117.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0020> created at line 117.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0021> created at line 117.
+    Found 10-bit comparator greatequal for signal <green$cmp_ge0022> created at line 117.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0023> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0024> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0025> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0026> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0027> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0028> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0029> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0030> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0031> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0032> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0033> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0034> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0035> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0036> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0037> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0038> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0039> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0040> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0041> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0042> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0043> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0044> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0045> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0046> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0047> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0048> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0049> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0050> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0051> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0052> created at line 149.
+    Found 12-bit comparator greatequal for signal <green$cmp_ge0053> created at line 149.
+    Found 11-bit comparator greatequal for signal <green$cmp_ge0054> created at line 149.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0000> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0001> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0002> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0003> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0004> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0005> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0006> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0007> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0008> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0009> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0010> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0011> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0012> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0013> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0014> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0015> created at line 88.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0016> created at line 117.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0017> created at line 117.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0018> created at line 117.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0019> created at line 117.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0020> created at line 117.
+    Found 10-bit comparator lessequal for signal <green$cmp_le0021> created at line 117.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0022> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0023> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0024> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0025> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0026> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0027> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0028> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0029> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0030> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0031> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0032> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0033> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0034> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0035> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0036> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0037> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0038> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0039> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0040> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0041> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0042> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0043> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0044> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0045> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0046> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0047> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0048> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0049> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0050> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0051> created at line 149.
+    Found 13-bit comparator lessequal for signal <green$cmp_le0052> created at line 149.
+    Found 12-bit comparator lessequal for signal <green$cmp_le0053> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0000$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0001$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0002$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0003$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0004$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0005$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0006$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0007$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0008$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0009$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0010$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0011$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0012$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0013$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0014$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0015$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0016$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0017$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0018$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0019$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0020$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0021$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0022$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0023$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0024$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0025$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0026$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0027$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0028$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0029$mult0001> created at line 149.
+    Found 6x6-bit multiplier for signal <mult0030$mult0001> created at line 149.
+    Found 6x5-bit multiplier for signal <mult0031$mult0001> created at line 149.
+    Summary:
+	inferred   3 D-type flip-flop(s).
+	inferred  64 Adder/Subtractor(s).
+	inferred  32 Multiplier(s).
+	inferred 115 Comparator(s).
+Unit <transform> synthesized.
+
+
+Synthesizing Unit <vga_256>.
+    Related source file is "VGA.v".
+WARNING:Xst:646 - Signal <valid> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 10-bit subtractor for signal <x_dis>.
+    Found 10-bit subtractor for signal <y_dis>.
+    Found 1-bit register for signal <clk2>.
+    Found 1-bit register for signal <hsync_r>.
+    Found 1-bit register for signal <vsync_r>.
+    Found 10-bit up counter for signal <x_cnt>.
+    Found 10-bit up counter for signal <y_cnt>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+Unit <vga_256> synthesized.
+
+
+Synthesizing Unit <Top_snake>.
+    Related source file is "Top_snake.vf".
+WARNING:Xst:646 - Signal <SW_OK<5:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <Top_snake> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 32
+ 6x5-bit multiplier                                    : 16
+ 6x6-bit multiplier                                    : 16
+# Adders/Subtractors                                   : 68
+ 10-bit subtractor                                     : 2
+ 11-bit adder carry out                                : 32
+ 12-bit adder carry out                                : 32
+ 6-bit addsub                                          : 2
+# Counters                                             : 6
+ 10-bit up counter                                     : 2
+ 11-bit up counter                                     : 2
+ 26-bit up counter                                     : 2
+# Registers                                            : 40
+ 1-bit register                                        : 8
+ 6-bit register                                        : 32
+# Comparators                                          : 141
+ 10-bit comparator greatequal                          : 25
+ 10-bit comparator lessequal                           : 26
+ 11-bit comparator greatequal                          : 16
+ 12-bit comparator greatequal                          : 16
+ 12-bit comparator lessequal                           : 16
+ 13-bit comparator lessequal                           : 16
+ 6-bit comparator equal                                : 26
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <XLXI_1/i/FSM> on signal <i[1:14]> with one-hot encoding.
+-------------------------
+ State | Encoding
+-------------------------
+ 0000  | 00000000000001
+ 0001  | 00000000000010
+ 0010  | 00000000000100
+ 0011  | 00000000001000
+ 0100  | 00000000010000
+ 0101  | 00000000100000
+ 0110  | 00000001000000
+ 0111  | 00000010000000
+ 1000  | 00000100000000
+ 1001  | 00001000000000
+ 1010  | 00010000000000
+ 1011  | 00100000000000
+ 1100  | 01000000000000
+ 1101  | 10000000000000
+-------------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <XLXI_1/moving_cstate/FSM> on signal <moving_cstate[1:3]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00001 | 000
+ 00100 | 001
+ 01000 | 010
+ 10000 | 011
+ 00010 | 100
+-------------------
+Reading core <Anti_jitter.ngc>.
+Loading core <Anti_jitter> for timing and area information for instance <XLXI_4>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 2
+# Multipliers                                          : 32
+ 6x5-bit multiplier                                    : 16
+ 6x6-bit multiplier                                    : 16
+# Adders/Subtractors                                   : 36
+ 10-bit subtractor                                     : 2
+ 11-bit adder carry out                                : 16
+ 12-bit adder carry out                                : 16
+ 6-bit addsub                                          : 2
+# Counters                                             : 6
+ 10-bit up counter                                     : 2
+ 11-bit up counter                                     : 2
+ 26-bit up counter                                     : 2
+# Registers                                            : 200
+ Flip-Flops                                            : 200
+# Comparators                                          : 141
+ 10-bit comparator greatequal                          : 25
+ 10-bit comparator lessequal                           : 26
+ 11-bit comparator greatequal                          : 16
+ 12-bit comparator greatequal                          : 16
+ 12-bit comparator lessequal                           : 16
+ 13-bit comparator lessequal                           : 16
+ 6-bit comparator equal                                : 26
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Top_snake> ...
+
+Optimizing unit <transform> ...
+
+Optimizing unit <vga_256> ...
+
+Optimizing unit <moving_snake> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Top_snake, actual ratio is 80.
+FlipFlop XLXI_1/reg_x1_0 has been replicated 1 time(s)
+FlipFlop XLXI_1/reg_x1_1 has been replicated 1 time(s)
+FlipFlop XLXI_1/reg_x1_3 has been replicated 1 time(s)
+FlipFlop XLXI_1/reg_x1_5 has been replicated 1 time(s)
+FlipFlop XLXI_1/reg_y1_0 has been replicated 1 time(s)
+FlipFlop XLXI_1/reg_y1_1 has been replicated 1 time(s)
+FlipFlop XLXI_1/reg_y1_2 has been replicated 1 time(s)
+FlipFlop XLXI_1/reg_y1_3 has been replicated 1 time(s)
+FlipFlop XLXI_2/green has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 320
+ Flip-Flops                                            : 320
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Top_snake.ngr
+Top Level Output File Name         : Top_snake
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 18
+
+Cell Usage :
+# BELS                             : 4289
+#      GND                         : 2
+#      INV                         : 103
+#      LUT1                        : 252
+#      LUT2                        : 489
+#      LUT2_D                      : 2
+#      LUT2_L                      : 24
+#      LUT3                        : 391
+#      LUT3_D                      : 13
+#      LUT3_L                      : 14
+#      LUT4                        : 1170
+#      LUT4_D                      : 47
+#      LUT4_L                      : 143
+#      MULT_AND                    : 16
+#      MUXCY                       : 1111
+#      MUXF5                       : 64
+#      VCC                         : 2
+#      XORCY                       : 446
+# FlipFlops/Latches                : 414
+#      FD                          : 13
+#      FDC                         : 256
+#      FDCE                        : 30
+#      FDE                         : 17
+#      FDP                         : 27
+#      FDPE                        : 2
+#      FDR                         : 2
+#      FDRE                        : 65
+#      FDS                         : 2
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 17
+#      IBUF                        : 12
+#      OBUF                        : 5
+# MULTs                            : 12
+#      MULT18X18                   : 12
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-5 
+
+ Number of Slices:                     1407  out of   1920    73%  
+ Number of Slice Flip Flops:            411  out of   3840    10%  
+ Number of 4 input LUTs:               2648  out of   3840    68%  
+ Number of IOs:                          18
+ Number of bonded IOBs:                  18  out of    173    10%  
+    IOB Flip Flops:                       3
+ Number of MULT18X18s:                   12  out of     12   100%  
+ Number of GCLKs:                         2  out of      8    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk50mhz                           | BUFGP                  | 389   |
+XLXI_2/clk2                        | NONE(XLXI_2/blue)      | 3     |
+XLXI_3/clk21                       | BUFG                   | 22    |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-------------------------------------------------------------+------------------------+-------+
+Control Signal                                               | Buffer(FF name)        | Load  |
+-------------------------------------------------------------+------------------------+-------+
+XLXI_1/i_FSM_Acst_FSM_inv(XLXI_1/i_FSM_Acst_FSM_inv1_INV_0:O)| NONE(XLXI_1/count0_0)  | 293   |
+XLXI_3/rst_inv(XLXI_3/rst_inv1_INV_0:O)                      | NONE(XLXI_3/hsync_r)   | 22    |
+-------------------------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 12.805ns (Maximum Frequency: 78.095MHz)
+   Minimum input arrival time before clock: 8.321ns
+   Maximum output required time after clock: 6.280ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk50mhz'
+  Clock period: 12.805ns (frequency: 78.095MHz)
+  Total number of paths / destination ports: 260443 / 532
+-------------------------------------------------------------------------
+Delay:               12.805ns (Levels of Logic = 8)
+  Source:            XLXI_1/reg_y15_1 (FF)
+  Destination:       XLXI_1/reg_x2_5 (FF)
+  Source Clock:      clk50mhz rising
+  Destination Clock: clk50mhz rising
+
+  Data Path: XLXI_1/reg_y15_1 to XLXI_1/reg_x2_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             17   0.626   1.166  XLXI_1/reg_y15_1 (XLXI_1/reg_y15_1)
+     LUT4:I3->O            1   0.479   0.851  XLXI_1/i_FSM_FFd13-In11126 (XLXI_1/i_FSM_FFd13-In11126)
+     LUT3:I1->O            1   0.479   0.704  XLXI_1/i_FSM_FFd13-In111214_SW0 (N726)
+     LUT4:I3->O            2   0.479   0.768  XLXI_1/i_FSM_FFd13-In111214 (XLXI_1/N53)
+     LUT4:I3->O            1   0.479   0.000  XLXI_1/reg_x1_or0001_wg_lut<6> (XLXI_1/reg_x1_or0001_wg_lut<6>)
+     MUXCY:S->O          125   0.644   2.087  XLXI_1/reg_x1_or0001_wg_cy<6> (XLXI_1/reg_x1_or0001)
+     LUT4_D:I2->O         28   0.479   1.726  XLXI_1/reg_x1_mux0000<0>21 (XLXI_1/N17)
+     LUT2:I1->O            1   0.479   0.704  XLXI_1/reg_y3_mux0000<0>_SW0 (N308)
+     LUT4:I3->O            1   0.479   0.000  XLXI_1/reg_y3_mux0000<0> (XLXI_1/reg_y3_mux0000<0>)
+     FDC:D                     0.176          XLXI_1/reg_y3_5
+    ----------------------------------------
+    Total                     12.805ns (4.799ns logic, 8.006ns route)
+                                       (37.5% logic, 62.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'XLXI_3/clk21'
+  Clock period: 7.352ns (frequency: 136.018MHz)
+  Total number of paths / destination ports: 551 / 32
+-------------------------------------------------------------------------
+Delay:               7.352ns (Levels of Logic = 3)
+  Source:            XLXI_3/y_cnt_2 (FF)
+  Destination:       XLXI_3/y_cnt_9 (FF)
+  Source Clock:      XLXI_3/clk21 rising
+  Destination Clock: XLXI_3/clk21 rising
+
+  Data Path: XLXI_3/y_cnt_2 to XLXI_3/y_cnt_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            42   0.626   1.794  XLXI_3/y_cnt_2 (XLXI_3/y_cnt_2)
+     LUT4:I1->O            1   0.479   0.976  XLXI_3/y_cnt_cmp_eq000010 (XLXI_3/y_cnt_cmp_eq000010)
+     LUT4:I0->O           11   0.479   1.031  XLXI_3/y_cnt_cmp_eq000036 (XLXI_3/y_cnt_cmp_eq0000)
+     LUT3:I2->O           10   0.479   0.964  XLXI_3/y_cnt_not00011 (XLXI_3/y_cnt_not0001)
+     FDCE:CE                   0.524          XLXI_3/y_cnt_0
+    ----------------------------------------
+    Total                      7.352ns (2.587ns logic, 4.765ns route)
+                                       (35.2% logic, 64.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk50mhz'
+  Total number of paths / destination ports: 1046 / 143
+-------------------------------------------------------------------------
+Offset:              8.321ns (Levels of Logic = 6)
+  Source:            SW<4> (PAD)
+  Destination:       XLXI_4/rst (FF)
+  Destination Clock: clk50mhz rising
+
+  Data Path: SW<4> to XLXI_4/rst
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   0.715   1.066  SW_4_IBUF (SW_4_IBUF)
+     begin scope: 'XLXI_4'
+     LUT4:I0->O            1   0.479   0.851  counter_cmp_ne000165 (counter_cmp_ne000165)
+     LUT4:I1->O            2   0.479   0.804  counter_cmp_ne0001164 (counter_cmp_ne0001)
+     LUT3:I2->O           66   0.479   1.764  rst_not000121_SW0 (counter_or0000)
+     LUT4:I3->O            1   0.479   0.681  rst_not00011 (rst_not0001)
+     FDE:CE                    0.524          rst
+    ----------------------------------------
+    Total                      8.321ns (3.155ns logic, 5.166ns route)
+                                       (37.9% logic, 62.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'XLXI_3/clk21'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              6.280ns (Levels of Logic = 1)
+  Source:            XLXI_3/vsync_r (FF)
+  Destination:       vsync (PAD)
+  Source Clock:      XLXI_3/clk21 rising
+
+  Data Path: XLXI_3/vsync_r to vsync
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              2   0.626   0.745  XLXI_3/vsync_r (XLXI_3/vsync_r)
+     OBUF:I->O                 4.909          vsync_OBUF (vsync)
+    ----------------------------------------
+    Total                      6.280ns (5.535ns logic, 0.745ns route)
+                                       (88.1% logic, 11.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'XLXI_2/clk2'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              6.216ns (Levels of Logic = 1)
+  Source:            XLXI_2/blue (FF)
+  Destination:       vga_b (PAD)
+  Source Clock:      XLXI_2/clk2 rising
+
+  Data Path: XLXI_2/blue to vga_b
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.626   0.681  XLXI_2/blue (XLXI_2/blue)
+     OBUF:I->O                 4.909          vga_b_OBUF (vga_b)
+    ----------------------------------------
+    Total                      6.216ns (5.535ns logic, 0.681ns route)
+                                       (89.0% logic, 11.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 41.00 secs
+Total CPU time to Xst completion: 40.62 secs
+ 
+--> 
+
+Total memory usage is 342260 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

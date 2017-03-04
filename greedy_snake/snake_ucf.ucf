@@ -1,0 +1,22 @@
+NET "SW[7]" LOC = "K13";
+NET "SW[6]" LOC = "K14";
+NET "SW[5]" LOC = "J13";
+NET "SW[4]" LOC = "J14";
+NET "SW[3]" LOC = "H13";
+NET "SW[2]" LOC = "H14";
+NET "SW[1]" LOC = "G12";
+NET "SW[0]" LOC = "F12";
+
+NET "BTN[0]" LOC = "M13";
+NET "BTN[1]" LOC = "M14";
+NET "BTN[2]" LOC = "L13";
+NET "BTN[3]" LOC = "L14";
+
+NET "clk50mhz" LOC = "T9";
+
+NET "hsync" LOC = "R9";
+NET "vsync" LOC = "T10";
+
+NET "vga_b" LOC = "R11";
+NET "vga_g" LOC = "T12";
+NET "vga_r" LOC = "R12";

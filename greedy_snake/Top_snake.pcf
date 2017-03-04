@@ -1,0 +1,26 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Jan 12 15:43:34 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "SW<0>" LOCATE = SITE "F12" LEVEL 1;
+COMP "SW<1>" LOCATE = SITE "G12" LEVEL 1;
+COMP "SW<2>" LOCATE = SITE "H14" LEVEL 1;
+COMP "SW<3>" LOCATE = SITE "H13" LEVEL 1;
+COMP "SW<4>" LOCATE = SITE "J14" LEVEL 1;
+COMP "SW<5>" LOCATE = SITE "J13" LEVEL 1;
+COMP "SW<6>" LOCATE = SITE "K14" LEVEL 1;
+COMP "SW<7>" LOCATE = SITE "K13" LEVEL 1;
+COMP "hsync" LOCATE = SITE "R9" LEVEL 1;
+COMP "vga_b" LOCATE = SITE "R11" LEVEL 1;
+COMP "vga_g" LOCATE = SITE "T12" LEVEL 1;
+COMP "vga_r" LOCATE = SITE "R12" LEVEL 1;
+COMP "vsync" LOCATE = SITE "T10" LEVEL 1;
+COMP "BTN<0>" LOCATE = SITE "M13" LEVEL 1;
+COMP "BTN<1>" LOCATE = SITE "M14" LEVEL 1;
+COMP "BTN<2>" LOCATE = SITE "L13" LEVEL 1;
+COMP "BTN<3>" LOCATE = SITE "L14" LEVEL 1;
+COMP "clk50mhz" LOCATE = SITE "T9" LEVEL 1;
+NET "clk50mhz_BUFGP/IBUFG" BEL "clk50mhz_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

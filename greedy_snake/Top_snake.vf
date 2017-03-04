@@ -1,0 +1,201 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : Top_snake.vf
+// /___/   /\     Timestamp : 01/12/2016 14:16:19
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3 -verilog C:/Users/CST/Desktop/greedy_snake/Top_snake.vf -w C:/Users/CST/Desktop/greedy_snake/Top_snake.sch
+//Design Name: Top_snake
+//Device: spartan3
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module Top_snake(BTN, 
+                 clk50mhz, 
+                 SW, 
+                 hsync, 
+                 vga_b, 
+                 vga_g, 
+                 vga_r, 
+                 vsync);
+
+    input [3:0] BTN;
+    input clk50mhz;
+    input [7:0] SW;
+   output hsync;
+   output vga_b;
+   output vga_g;
+   output vga_r;
+   output vsync;
+   
+   wire [3:0] button_out;
+   wire [7:0] SW_OK;
+   wire XLXN_15;
+   wire XLXN_16;
+   wire XLXN_17;
+   wire XLXN_21;
+   wire XLXN_22;
+   wire [9:0] XLXN_46;
+   wire XLXN_47;
+   wire XLXN_49;
+   wire XLXN_54;
+   wire XLXN_58;
+   wire XLXN_61;
+   wire XLXN_62;
+   wire [9:0] x_dis;
+   wire [5:0] x0;
+   wire [5:0] x1;
+   wire [5:0] x2;
+   wire [5:0] x3;
+   wire [5:0] x4;
+   wire [5:0] x5;
+   wire [5:0] x6;
+   wire [5:0] x7;
+   wire [5:0] x8;
+   wire [5:0] x9;
+   wire [5:0] x10;
+   wire [5:0] x11;
+   wire [5:0] x12;
+   wire [5:0] x13;
+   wire [5:0] x14;
+   wire [5:0] x15;
+   wire [5:0] y0;
+   wire [5:0] y1;
+   wire [5:0] y2;
+   wire [5:0] y3;
+   wire [5:0] y4;
+   wire [5:0] y5;
+   wire [5:0] y6;
+   wire [5:0] y7;
+   wire [5:0] y8;
+   wire [5:0] y9;
+   wire [5:0] y10;
+   wire [5:0] y11;
+   wire [5:0] y12;
+   wire [5:0] y13;
+   wire [5:0] y14;
+   wire [5:0] y15;
+   
+   moving_snake  XLXI_1 (.clk(clk50mhz), 
+                        .down(XLXN_58), 
+                        .left(XLXN_62), 
+                        .right(XLXN_61), 
+                        .rst_n(XLXN_47), 
+                        .start(SW_OK[7]), 
+                        .up(XLXN_54), 
+                        .o_over(XLXN_21), 
+                        .o_win(XLXN_22), 
+                        .x0(x0[5:0]), 
+                        .x1(x1[5:0]), 
+                        .x2(x2[5:0]), 
+                        .x3(x3[5:0]), 
+                        .x4(x4[5:0]), 
+                        .x5(x5[5:0]), 
+                        .x6(x6[5:0]), 
+                        .x7(x7[5:0]), 
+                        .x8(x8[5:0]), 
+                        .x9(x9[5:0]), 
+                        .x10(x10[5:0]), 
+                        .x11(x11[5:0]), 
+                        .x12(x12[5:0]), 
+                        .x13(x13[5:0]), 
+                        .x14(x14[5:0]), 
+                        .x15(x15[5:0]), 
+                        .y0(y0[5:0]), 
+                        .y1(y1[5:0]), 
+                        .y2(y2[5:0]), 
+                        .y3(y3[5:0]), 
+                        .y4(y4[5:0]), 
+                        .y5(y5[5:0]), 
+                        .y6(y6[5:0]), 
+                        .y7(y7[5:0]), 
+                        .y8(y8[5:0]), 
+                        .y9(y9[5:0]), 
+                        .y10(y10[5:0]), 
+                        .y11(y11[5:0]), 
+                        .y12(y12[5:0]), 
+                        .y13(y13[5:0]), 
+                        .y14(y14[5:0]), 
+                        .y15(y15[5:0]));
+   transform  XLXI_2 (.clk(clk50mhz), 
+                     .over(XLXN_21), 
+                     .win(XLXN_22), 
+                     .x(x_dis[9:0]), 
+                     .x0(x0[5:0]), 
+                     .x1(x1[5:0]), 
+                     .x2(x2[5:0]), 
+                     .x3(x3[5:0]), 
+                     .x4(x4[5:0]), 
+                     .x5(x5[5:0]), 
+                     .x6(x6[5:0]), 
+                     .x7(x7[5:0]), 
+                     .x8(x8[5:0]), 
+                     .x9(x9[5:0]), 
+                     .x10(x10[5:0]), 
+                     .x11(x11[5:0]), 
+                     .x12(x12[5:0]), 
+                     .x13(x13[5:0]), 
+                     .x14(x14[5:0]), 
+                     .x15(x15[5:0]), 
+                     .y(XLXN_46[9:0]), 
+                     .y0(y0[5:0]), 
+                     .y1(y1[5:0]), 
+                     .y2(y2[5:0]), 
+                     .y3(y3[5:0]), 
+                     .y4(y4[5:0]), 
+                     .y5(y5[5:0]), 
+                     .y6(y6[5:0]), 
+                     .y7(y7[5:0]), 
+                     .y8(y8[5:0]), 
+                     .y9(y9[5:0]), 
+                     .y10(y10[5:0]), 
+                     .y11(y11[5:0]), 
+                     .y12(y12[5:0]), 
+                     .y13(y13[5:0]), 
+                     .y14(y14[5:0]), 
+                     .y15(y15[5:0]), 
+                     .c_blue(XLXN_17), 
+                     .c_green(XLXN_16), 
+                     .c_red(XLXN_15));
+   vga_256  XLXI_3 (.clk(clk50mhz), 
+                   .nvga_b(XLXN_17), 
+                   .nvga_g(XLXN_16), 
+                   .nvga_r(XLXN_15), 
+                   .rst(XLXN_49), 
+                   .hsync(hsync), 
+                   .vga_b(vga_b), 
+                   .vga_g(vga_g), 
+                   .vga_r(vga_r), 
+                   .vsync(vsync), 
+                   .x_dis(x_dis[9:0]), 
+                   .y_dis(XLXN_46[9:0]));
+   Anti_jitter  XLXI_4 (.button(BTN[3:0]), 
+                       .clk(clk50mhz), 
+                       .SW(SW[7:0]), 
+                       .button_out(button_out[3:0]), 
+                       .button_pulse(), 
+                       .rst(), 
+                       .SW_OK(SW_OK[7:0]));
+   INV  XLXI_5 (.I(SW_OK[6]), 
+               .O(XLXN_47));
+   INV  XLXI_7 (.I(SW_OK[6]), 
+               .O(XLXN_49));
+   INV  XLXI_8 (.I(button_out[3]), 
+               .O(XLXN_54));
+   INV  XLXI_9 (.I(button_out[2]), 
+               .O(XLXN_58));
+   INV  XLXI_10 (.I(button_out[1]), 
+                .O(XLXN_62));
+   INV  XLXI_11 (.I(button_out[0]), 
+                .O(XLXN_61));
+endmodule

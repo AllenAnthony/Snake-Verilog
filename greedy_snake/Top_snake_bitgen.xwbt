@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\CST\Desktop\greedy_snake\Top_snake.ncd
+OUTFILE=C:\Users\CST\Desktop\greedy_snake\Top_snake.bit
+FAMILY=Spartan3
+PART=xc3s200-5ft256
+WORKINGDIR=C:\Users\CST\Desktop\greedy_snake
+LICENSE=WebPack
+USER_INFO=__0_0_0

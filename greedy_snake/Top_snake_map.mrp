@@ -1,0 +1,609 @@
+Release 14.7 Map P.20131013 (nt)
+Xilinx Mapping Report File for Design 'Top_snake'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s200-ft256-5 -cm area -ir off -pr off
+-c 100 -o Top_snake_map.ncd Top_snake.ngd Top_snake.pcf 
+Target Device  : xc3s200
+Target Package : ft256
+Target Speed   : -5
+Mapper Version : spartan3 -- $Revision: 1.55 $
+Mapped Date    : Tue Jan 12 15:43:31 2016
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    1
+Logic Utilization:
+  Number of Slice Flip Flops:           367 out of   3,840    9%
+  Number of 4 input LUTs:             2,357 out of   3,840   61%
+Logic Distribution:
+  Number of occupied Slices:          1,345 out of   1,920   70%
+    Number of Slices containing only related logic:   1,345 out of   1,345 100%
+    Number of Slices containing unrelated logic:          0 out of   1,345   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:       2,575 out of   3,840   67%
+    Number used as logic:             2,357
+    Number used as a route-thru:        218
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 18 out of     173   10%
+    IOB Flip Flops:                       3
+  Number of MULT18X18s:                  12 out of      12  100%
+  Number of BUFGMUXs:                     2 out of       8   25%
+
+Average Fanout of Non-Clock Nets:                3.62
+
+Peak Memory Usage:  211 MB
+Total REAL time to MAP completion:  4 secs 
+Total CPU time to MAP completion:   3 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Pack:266 - The function generator XLXI_2/green_cmp_le00051 failed to
+   merge with F5 multiplexer XLXI_2/green_mux000012_f5.  There is a conflict for
+   the FXMUX.  The design will exhibit suboptimal timing.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network XLXI_4/rst has no load.
+INFO:LIT:395 - The above info message is repeated 10 more times for the
+   following (max. 5 shown):
+   XLXI_4/button_pulse<3>,
+   XLXI_4/button_pulse<2>,
+   XLXI_4/button_pulse<1>,
+   XLXI_4/button_pulse<0>,
+   XLXI_4/SW_OK<5>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 167 block(s) removed
+   4 block(s) optimized away
+ 167 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "XLXI_4/rst" is sourceless and has been removed.
+The signal "XLXI_4/button_pulse<3>" is sourceless and has been removed.
+The signal "XLXI_4/button_pulse<2>" is sourceless and has been removed.
+The signal "XLXI_4/button_pulse<1>" is sourceless and has been removed.
+The signal "XLXI_4/button_pulse<0>" is sourceless and has been removed.
+The signal "XLXI_4/SW_OK<5>" is sourceless and has been removed.
+The signal "XLXI_4/SW_OK<4>" is sourceless and has been removed.
+The signal "XLXI_4/SW_OK<3>" is sourceless and has been removed.
+The signal "XLXI_4/SW_OK<2>" is sourceless and has been removed.
+The signal "XLXI_4/SW_OK<1>" is sourceless and has been removed.
+The signal "XLXI_4/SW_OK<0>" is sourceless and has been removed.
+The signal "XLXI_4/pulse" is sourceless and has been removed.
+ Sourceless block "XLXI_4/button_pulse_mux0000<3>1" (ROM) removed.
+  The signal "XLXI_4/button_pulse_mux0000<3>" is sourceless and has been removed.
+   Sourceless block "XLXI_4/button_pulse_3" (FF) removed.
+ Sourceless block "XLXI_4/button_pulse_mux0000<2>1" (ROM) removed.
+  The signal "XLXI_4/button_pulse_mux0000<2>" is sourceless and has been removed.
+   Sourceless block "XLXI_4/button_pulse_2" (FF) removed.
+ Sourceless block "XLXI_4/button_pulse_mux0000<1>1" (ROM) removed.
+  The signal "XLXI_4/button_pulse_mux0000<1>" is sourceless and has been removed.
+   Sourceless block "XLXI_4/button_pulse_1" (FF) removed.
+ Sourceless block "XLXI_4/button_pulse_mux0000<0>1" (ROM) removed.
+  The signal "XLXI_4/button_pulse_mux0000<0>" is sourceless and has been removed.
+   Sourceless block "XLXI_4/button_pulse_0" (FF) removed.
+The signal "XLXI_4/rst_not0001" is sourceless and has been removed.
+ Sourceless block "XLXI_4/rst" (FF) removed.
+The signal "XLXI_4/rst_counter_not0001" is sourceless and has been removed.
+ Sourceless block "XLXI_4/rst_counter_0" (SFF) removed.
+  The signal "XLXI_4/rst_counter<0>" is sourceless and has been removed.
+   Sourceless block "XLXI_4/Mcount_rst_counter_lut<0>_INV_0" (BUF) removed.
+    The signal "XLXI_4/Mcount_rst_counter_lut<0>" is sourceless and has been
+removed.
+     Sourceless block "XLXI_4/Mcount_rst_counter_cy<0>" (MUX) removed.
+      The signal "XLXI_4/Mcount_rst_counter_cy<0>" is sourceless and has been removed.
+       Sourceless block "XLXI_4/Mcount_rst_counter_cy<1>" (MUX) removed.
+        The signal "XLXI_4/Mcount_rst_counter_cy<1>" is sourceless and has been removed.
+         Sourceless block "XLXI_4/Mcount_rst_counter_cy<2>" (MUX) removed.
+          The signal "XLXI_4/Mcount_rst_counter_cy<2>" is sourceless and has been removed.
+           Sourceless block "XLXI_4/Mcount_rst_counter_cy<3>" (MUX) removed.
+            The signal "XLXI_4/Mcount_rst_counter_cy<3>" is sourceless and has been removed.
+             Sourceless block "XLXI_4/Mcount_rst_counter_cy<4>" (MUX) removed.
+              The signal "XLXI_4/Mcount_rst_counter_cy<4>" is sourceless and has been removed.
+               Sourceless block "XLXI_4/Mcount_rst_counter_cy<5>" (MUX) removed.
+                The signal "XLXI_4/Mcount_rst_counter_cy<5>" is sourceless and has been removed.
+                 Sourceless block "XLXI_4/Mcount_rst_counter_cy<6>" (MUX) removed.
+                  The signal "XLXI_4/Mcount_rst_counter_cy<6>" is sourceless and has been removed.
+                   Sourceless block "XLXI_4/Mcount_rst_counter_cy<7>" (MUX) removed.
+                    The signal "XLXI_4/Mcount_rst_counter_cy<7>" is sourceless and has been removed.
+                     Sourceless block "XLXI_4/Mcount_rst_counter_cy<8>" (MUX) removed.
+                      The signal "XLXI_4/Mcount_rst_counter_cy<8>" is sourceless and has been removed.
+                       Sourceless block "XLXI_4/Mcount_rst_counter_cy<9>" (MUX) removed.
+                        The signal "XLXI_4/Mcount_rst_counter_cy<9>" is sourceless and has been removed.
+                         Sourceless block "XLXI_4/Mcount_rst_counter_cy<10>" (MUX) removed.
+                          The signal "XLXI_4/Mcount_rst_counter_cy<10>" is sourceless and has been
+removed.
+                           Sourceless block "XLXI_4/Mcount_rst_counter_cy<11>" (MUX) removed.
+                            The signal "XLXI_4/Mcount_rst_counter_cy<11>" is sourceless and has been
+removed.
+                             Sourceless block "XLXI_4/Mcount_rst_counter_cy<12>" (MUX) removed.
+                              The signal "XLXI_4/Mcount_rst_counter_cy<12>" is sourceless and has been
+removed.
+                               Sourceless block "XLXI_4/Mcount_rst_counter_cy<13>" (MUX) removed.
+                                The signal "XLXI_4/Mcount_rst_counter_cy<13>" is sourceless and has been
+removed.
+                                 Sourceless block "XLXI_4/Mcount_rst_counter_cy<14>" (MUX) removed.
+                                  The signal "XLXI_4/Mcount_rst_counter_cy<14>" is sourceless and has been
+removed.
+                                   Sourceless block "XLXI_4/Mcount_rst_counter_cy<15>" (MUX) removed.
+                                    The signal "XLXI_4/Mcount_rst_counter_cy<15>" is sourceless and has been
+removed.
+                                     Sourceless block "XLXI_4/Mcount_rst_counter_cy<16>" (MUX) removed.
+                                      The signal "XLXI_4/Mcount_rst_counter_cy<16>" is sourceless and has been
+removed.
+                                       Sourceless block "XLXI_4/Mcount_rst_counter_cy<17>" (MUX) removed.
+                                        The signal "XLXI_4/Mcount_rst_counter_cy<17>" is sourceless and has been
+removed.
+                                         Sourceless block "XLXI_4/Mcount_rst_counter_cy<18>" (MUX) removed.
+                                          The signal "XLXI_4/Mcount_rst_counter_cy<18>" is sourceless and has been
+removed.
+                                           Sourceless block "XLXI_4/Mcount_rst_counter_cy<19>" (MUX) removed.
+                                            The signal "XLXI_4/Mcount_rst_counter_cy<19>" is sourceless and has been
+removed.
+                                             Sourceless block "XLXI_4/Mcount_rst_counter_cy<20>" (MUX) removed.
+                                              The signal "XLXI_4/Mcount_rst_counter_cy<20>" is sourceless and has been
+removed.
+                                               Sourceless block "XLXI_4/Mcount_rst_counter_cy<21>" (MUX) removed.
+                                                The signal "XLXI_4/Mcount_rst_counter_cy<21>" is sourceless and has been
+removed.
+                                                 Sourceless block "XLXI_4/Mcount_rst_counter_cy<22>" (MUX) removed.
+*The signal "XLXI_4/Mcount_rst_counter_cy<22>" is sourceless and has been
+removed.
+* Sourceless block "XLXI_4/Mcount_rst_counter_cy<23>" (MUX) removed.
+*  The signal "XLXI_4/Mcount_rst_counter_cy<23>" is sourceless and has been
+removed.
+*   Sourceless block "XLXI_4/Mcount_rst_counter_cy<24>" (MUX) removed.
+*    The signal "XLXI_4/Mcount_rst_counter_cy<24>" is sourceless and has been
+removed.
+*     Sourceless block "XLXI_4/Mcount_rst_counter_cy<25>" (MUX) removed.
+*      The signal "XLXI_4/Mcount_rst_counter_cy<25>" is sourceless and has been
+removed.
+*       Sourceless block "XLXI_4/Mcount_rst_counter_cy<26>" (MUX) removed.
+*        The signal "XLXI_4/Mcount_rst_counter_cy<26>" is sourceless and has been
+removed.
+*         Sourceless block "XLXI_4/Mcount_rst_counter_cy<27>" (MUX) removed.
+*          The signal "XLXI_4/Mcount_rst_counter_cy<27>" is sourceless and has been
+removed.
+*           Sourceless block "XLXI_4/Mcount_rst_counter_cy<28>" (MUX) removed.
+*            The signal "XLXI_4/Mcount_rst_counter_cy<28>" is sourceless and has been
+removed.
+*             Sourceless block "XLXI_4/Mcount_rst_counter_cy<29>" (MUX) removed.
+*              The signal "XLXI_4/Mcount_rst_counter_cy<29>" is sourceless and has been
+removed.
+*               Sourceless block "XLXI_4/Mcount_rst_counter_cy<30>" (MUX) removed.
+*                The signal "XLXI_4/Mcount_rst_counter_cy<30>" is sourceless and has been
+removed.
+*                 Sourceless block "XLXI_4/Mcount_rst_counter_xor<31>" (XOR) removed.
+*                  The signal "XLXI_4/Result<31>" is sourceless and has been removed.
+*                   Sourceless block "XLXI_4/rst_counter_31" (SFF) removed.
+*                    The signal "XLXI_4/rst_counter<31>" is sourceless and has been removed.
+*                     Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<10>" (ROM) removed.
+*                      The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<10>" is sourceless and has
+been removed.
+*                       Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<10>" (MUX) removed.
+*                        The signal "XLXI_4/rst_counter_cmp_ge0000" is sourceless and has been removed.
+*                         Sourceless block "XLXI_4/rst_counter_not00011" (ROM) removed.
+*                         Sourceless block "XLXI_4/rst_not00011" (ROM) removed.
+*                     Sourceless block "XLXI_4/Mcount_rst_counter_xor<31>_rt" (ROM) removed.
+*                      The signal "XLXI_4/Mcount_rst_counter_xor<31>_rt" is sourceless and has been
+removed.
+*               Sourceless block "XLXI_4/Mcount_rst_counter_xor<30>" (XOR) removed.
+*                The signal "XLXI_4/Result<30>" is sourceless and has been removed.
+*                 Sourceless block "XLXI_4/rst_counter_30" (SFF) removed.
+*                  The signal "XLXI_4/rst_counter<30>" is sourceless and has been removed.
+*                   Sourceless block "XLXI_4/Mcount_rst_counter_cy<30>_rt" (ROM) removed.
+*                    The signal "XLXI_4/Mcount_rst_counter_cy<30>_rt" is sourceless and has been
+removed.
+*             Sourceless block "XLXI_4/Mcount_rst_counter_xor<29>" (XOR) removed.
+*              The signal "XLXI_4/Result<29>" is sourceless and has been removed.
+*               Sourceless block "XLXI_4/rst_counter_29" (SFF) removed.
+*                The signal "XLXI_4/rst_counter<29>" is sourceless and has been removed.
+*                 Sourceless block "XLXI_4/Mcount_rst_counter_cy<29>_rt" (ROM) removed.
+*                  The signal "XLXI_4/Mcount_rst_counter_cy<29>_rt" is sourceless and has been
+removed.
+*           Sourceless block "XLXI_4/Mcount_rst_counter_xor<28>" (XOR) removed.
+*            The signal "XLXI_4/Result<28>" is sourceless and has been removed.
+*             Sourceless block "XLXI_4/rst_counter_28" (SFF) removed.
+*              The signal "XLXI_4/rst_counter<28>" is sourceless and has been removed.
+*               Sourceless block "XLXI_4/Mcount_rst_counter_cy<28>_rt" (ROM) removed.
+*                The signal "XLXI_4/Mcount_rst_counter_cy<28>_rt" is sourceless and has been
+removed.
+*         Sourceless block "XLXI_4/Mcount_rst_counter_xor<27>" (XOR) removed.
+*          The signal "XLXI_4/Result<27>" is sourceless and has been removed.
+*           Sourceless block "XLXI_4/rst_counter_27" (SFF) removed.
+*            The signal "XLXI_4/rst_counter<27>" is sourceless and has been removed.
+*             Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<9>_rt" (ROM) removed.
+*              The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<9>_rt" is sourceless and
+has been removed.
+*               Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<9>" (MUX) removed.
+*                The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<9>" is sourceless and has
+been removed.
+*             Sourceless block "XLXI_4/Mcount_rst_counter_cy<27>_rt" (ROM) removed.
+*              The signal "XLXI_4/Mcount_rst_counter_cy<27>_rt" is sourceless and has been
+removed.
+*       Sourceless block "XLXI_4/Mcount_rst_counter_xor<26>" (XOR) removed.
+*        The signal "XLXI_4/Result<26>" is sourceless and has been removed.
+*         Sourceless block "XLXI_4/rst_counter_26" (SFF) removed.
+*          The signal "XLXI_4/rst_counter<26>" is sourceless and has been removed.
+*           Sourceless block "XLXI_4/Mcount_rst_counter_cy<26>_rt" (ROM) removed.
+*            The signal "XLXI_4/Mcount_rst_counter_cy<26>_rt" is sourceless and has been
+removed.
+*           Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<8>_INV_0" (BUF)
+removed.
+*            The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<8>" is sourceless and has
+been removed.
+*             Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<8>" (MUX) removed.
+*              The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<8>" is sourceless and has
+been removed.
+*     Sourceless block "XLXI_4/Mcount_rst_counter_xor<25>" (XOR) removed.
+*      The signal "XLXI_4/Result<25>" is sourceless and has been removed.
+*       Sourceless block "XLXI_4/rst_counter_25" (SFF) removed.
+*        The signal "XLXI_4/rst_counter<25>" is sourceless and has been removed.
+*         Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<7>_rt" (ROM) removed.
+*          The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<7>_rt" is sourceless and
+has been removed.
+*           Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<7>" (MUX) removed.
+*            The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<7>" is sourceless and has
+been removed.
+*         Sourceless block "XLXI_4/Mcount_rst_counter_cy<25>_rt" (ROM) removed.
+*          The signal "XLXI_4/Mcount_rst_counter_cy<25>_rt" is sourceless and has been
+removed.
+*   Sourceless block "XLXI_4/Mcount_rst_counter_xor<24>" (XOR) removed.
+*    The signal "XLXI_4/Result<24>" is sourceless and has been removed.
+*     Sourceless block "XLXI_4/rst_counter_24" (SFF) removed.
+*      The signal "XLXI_4/rst_counter<24>" is sourceless and has been removed.
+*       Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<6>" (ROM) removed.
+*        The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<6>" is sourceless and has
+been removed.
+*         Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<6>" (MUX) removed.
+*          The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<6>" is sourceless and has
+been removed.
+*       Sourceless block "XLXI_4/Mcount_rst_counter_cy<24>_rt" (ROM) removed.
+*        The signal "XLXI_4/Mcount_rst_counter_cy<24>_rt" is sourceless and has been
+removed.
+* Sourceless block "XLXI_4/Mcount_rst_counter_xor<23>" (XOR) removed.
+*  The signal "XLXI_4/Result<23>" is sourceless and has been removed.
+*   Sourceless block "XLXI_4/rst_counter_23" (SFF) removed.
+*    The signal "XLXI_4/rst_counter<23>" is sourceless and has been removed.
+*     Sourceless block "XLXI_4/Mcount_rst_counter_cy<23>_rt" (ROM) removed.
+*      The signal "XLXI_4/Mcount_rst_counter_cy<23>_rt" is sourceless and has been
+removed.
+                                                 Sourceless block "XLXI_4/Mcount_rst_counter_xor<22>" (XOR) removed.
+*The signal "XLXI_4/Result<22>" is sourceless and has been removed.
+* Sourceless block "XLXI_4/rst_counter_22" (SFF) removed.
+*  The signal "XLXI_4/rst_counter<22>" is sourceless and has been removed.
+*   Sourceless block "XLXI_4/Mcount_rst_counter_cy<22>_rt" (ROM) removed.
+*    The signal "XLXI_4/Mcount_rst_counter_cy<22>_rt" is sourceless and has been
+removed.
+                                               Sourceless block "XLXI_4/Mcount_rst_counter_xor<21>" (XOR) removed.
+                                                The signal "XLXI_4/Result<21>" is sourceless and has been removed.
+                                                 Sourceless block "XLXI_4/rst_counter_21" (SFF) removed.
+*The signal "XLXI_4/rst_counter<21>" is sourceless and has been removed.
+* Sourceless block "XLXI_4/Mcount_rst_counter_cy<21>_rt" (ROM) removed.
+*  The signal "XLXI_4/Mcount_rst_counter_cy<21>_rt" is sourceless and has been
+removed.
+                                             Sourceless block "XLXI_4/Mcount_rst_counter_xor<20>" (XOR) removed.
+                                              The signal "XLXI_4/Result<20>" is sourceless and has been removed.
+                                               Sourceless block "XLXI_4/rst_counter_20" (SFF) removed.
+                                                The signal "XLXI_4/rst_counter<20>" is sourceless and has been removed.
+                                                 Sourceless block "XLXI_4/Mcount_rst_counter_cy<20>_rt" (ROM) removed.
+*The signal "XLXI_4/Mcount_rst_counter_cy<20>_rt" is sourceless and has been
+removed.
+                                                 Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<5>_INV_0" (BUF)
+removed.
+*The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<5>" is sourceless and has
+been removed.
+* Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<5>" (MUX) removed.
+*  The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<5>" is sourceless and has
+been removed.
+                                           Sourceless block "XLXI_4/Mcount_rst_counter_xor<19>" (XOR) removed.
+                                            The signal "XLXI_4/Result<19>" is sourceless and has been removed.
+                                             Sourceless block "XLXI_4/rst_counter_19" (SFF) removed.
+                                              The signal "XLXI_4/rst_counter<19>" is sourceless and has been removed.
+                                               Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<4>_rt" (ROM) removed.
+                                                The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<4>_rt" is sourceless and
+has been removed.
+                                                 Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<4>" (MUX) removed.
+*The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<4>" is sourceless and has
+been removed.
+                                               Sourceless block "XLXI_4/Mcount_rst_counter_cy<19>_rt" (ROM) removed.
+                                                The signal "XLXI_4/Mcount_rst_counter_cy<19>_rt" is sourceless and has been
+removed.
+                                         Sourceless block "XLXI_4/Mcount_rst_counter_xor<18>" (XOR) removed.
+                                          The signal "XLXI_4/Result<18>" is sourceless and has been removed.
+                                           Sourceless block "XLXI_4/rst_counter_18" (SFF) removed.
+                                            The signal "XLXI_4/rst_counter<18>" is sourceless and has been removed.
+                                             Sourceless block "XLXI_4/Mcount_rst_counter_cy<18>_rt" (ROM) removed.
+                                              The signal "XLXI_4/Mcount_rst_counter_cy<18>_rt" is sourceless and has been
+removed.
+                                             Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<3>_INV_0" (BUF)
+removed.
+                                              The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<3>" is sourceless and has
+been removed.
+                                               Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<3>" (MUX) removed.
+                                                The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<3>" is sourceless and has
+been removed.
+                                       Sourceless block "XLXI_4/Mcount_rst_counter_xor<17>" (XOR) removed.
+                                        The signal "XLXI_4/Result<17>" is sourceless and has been removed.
+                                         Sourceless block "XLXI_4/rst_counter_17" (SFF) removed.
+                                          The signal "XLXI_4/rst_counter<17>" is sourceless and has been removed.
+                                           Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<2>" (ROM) removed.
+                                            The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<2>" is sourceless and has
+been removed.
+                                             Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<2>" (MUX) removed.
+                                              The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<2>" is sourceless and has
+been removed.
+                                           Sourceless block "XLXI_4/Mcount_rst_counter_cy<17>_rt" (ROM) removed.
+                                            The signal "XLXI_4/Mcount_rst_counter_cy<17>_rt" is sourceless and has been
+removed.
+                                     Sourceless block "XLXI_4/Mcount_rst_counter_xor<16>" (XOR) removed.
+                                      The signal "XLXI_4/Result<16>" is sourceless and has been removed.
+                                       Sourceless block "XLXI_4/rst_counter_16" (SFF) removed.
+                                        The signal "XLXI_4/rst_counter<16>" is sourceless and has been removed.
+                                         Sourceless block "XLXI_4/Mcount_rst_counter_cy<16>_rt" (ROM) removed.
+                                          The signal "XLXI_4/Mcount_rst_counter_cy<16>_rt" is sourceless and has been
+removed.
+                                   Sourceless block "XLXI_4/Mcount_rst_counter_xor<15>" (XOR) removed.
+                                    The signal "XLXI_4/Result<15>" is sourceless and has been removed.
+                                     Sourceless block "XLXI_4/rst_counter_15" (SFF) removed.
+                                      The signal "XLXI_4/rst_counter<15>" is sourceless and has been removed.
+                                       Sourceless block "XLXI_4/Mcount_rst_counter_cy<15>_rt" (ROM) removed.
+                                        The signal "XLXI_4/Mcount_rst_counter_cy<15>_rt" is sourceless and has been
+removed.
+                                 Sourceless block "XLXI_4/Mcount_rst_counter_xor<14>" (XOR) removed.
+                                  The signal "XLXI_4/Result<14>" is sourceless and has been removed.
+                                   Sourceless block "XLXI_4/rst_counter_14" (SFF) removed.
+                                    The signal "XLXI_4/rst_counter<14>" is sourceless and has been removed.
+                                     Sourceless block "XLXI_4/Mcount_rst_counter_cy<14>_rt" (ROM) removed.
+                                      The signal "XLXI_4/Mcount_rst_counter_cy<14>_rt" is sourceless and has been
+removed.
+                               Sourceless block "XLXI_4/Mcount_rst_counter_xor<13>" (XOR) removed.
+                                The signal "XLXI_4/Result<13>" is sourceless and has been removed.
+                                 Sourceless block "XLXI_4/rst_counter_13" (SFF) removed.
+                                  The signal "XLXI_4/rst_counter<13>" is sourceless and has been removed.
+                                   Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<1>" (ROM) removed.
+                                    The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_lut<1>" is sourceless and has
+been removed.
+                                     Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<1>" (MUX) removed.
+                                      The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<1>" is sourceless and has
+been removed.
+                                   Sourceless block "XLXI_4/Mcount_rst_counter_cy<13>_rt" (ROM) removed.
+                                    The signal "XLXI_4/Mcount_rst_counter_cy<13>_rt" is sourceless and has been
+removed.
+                             Sourceless block "XLXI_4/Mcount_rst_counter_xor<12>" (XOR) removed.
+                              The signal "XLXI_4/Result<12>" is sourceless and has been removed.
+                               Sourceless block "XLXI_4/rst_counter_12" (SFF) removed.
+                                The signal "XLXI_4/rst_counter<12>" is sourceless and has been removed.
+                                 Sourceless block "XLXI_4/Mcount_rst_counter_cy<12>_rt" (ROM) removed.
+                                  The signal "XLXI_4/Mcount_rst_counter_cy<12>_rt" is sourceless and has been
+removed.
+                           Sourceless block "XLXI_4/Mcount_rst_counter_xor<11>" (XOR) removed.
+                            The signal "XLXI_4/Result<11>" is sourceless and has been removed.
+                             Sourceless block "XLXI_4/rst_counter_11" (SFF) removed.
+                              The signal "XLXI_4/rst_counter<11>" is sourceless and has been removed.
+                               Sourceless block "XLXI_4/Mcount_rst_counter_cy<11>_rt" (ROM) removed.
+                                The signal "XLXI_4/Mcount_rst_counter_cy<11>_rt" is sourceless and has been
+removed.
+                         Sourceless block "XLXI_4/Mcount_rst_counter_xor<10>" (XOR) removed.
+                          The signal "XLXI_4/Result<10>" is sourceless and has been removed.
+                           Sourceless block "XLXI_4/rst_counter_10" (SFF) removed.
+                            The signal "XLXI_4/rst_counter<10>" is sourceless and has been removed.
+                             Sourceless block "XLXI_4/Mcount_rst_counter_cy<10>_rt" (ROM) removed.
+                              The signal "XLXI_4/Mcount_rst_counter_cy<10>_rt" is sourceless and has been
+removed.
+                       Sourceless block "XLXI_4/Mcount_rst_counter_xor<9>" (XOR) removed.
+                        The signal "XLXI_4/Result<9>" is sourceless and has been removed.
+                         Sourceless block "XLXI_4/rst_counter_9" (SFF) removed.
+                          The signal "XLXI_4/rst_counter<9>" is sourceless and has been removed.
+                           Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<0>_rt" (ROM) removed.
+                            The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<0>_rt" is sourceless and
+has been removed.
+                             Sourceless block "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<0>" (MUX) removed.
+                              The signal "XLXI_4/Mcompar_rst_counter_cmp_ge0000_cy<0>" is sourceless and has
+been removed.
+                           Sourceless block "XLXI_4/Mcount_rst_counter_cy<9>_rt" (ROM) removed.
+                            The signal "XLXI_4/Mcount_rst_counter_cy<9>_rt" is sourceless and has been
+removed.
+                     Sourceless block "XLXI_4/Mcount_rst_counter_xor<8>" (XOR) removed.
+                      The signal "XLXI_4/Result<8>" is sourceless and has been removed.
+                       Sourceless block "XLXI_4/rst_counter_8" (SFF) removed.
+                        The signal "XLXI_4/rst_counter<8>" is sourceless and has been removed.
+                         Sourceless block "XLXI_4/Mcount_rst_counter_cy<8>_rt" (ROM) removed.
+                          The signal "XLXI_4/Mcount_rst_counter_cy<8>_rt" is sourceless and has been
+removed.
+                   Sourceless block "XLXI_4/Mcount_rst_counter_xor<7>" (XOR) removed.
+                    The signal "XLXI_4/Result<7>" is sourceless and has been removed.
+                     Sourceless block "XLXI_4/rst_counter_7" (SFF) removed.
+                      The signal "XLXI_4/rst_counter<7>" is sourceless and has been removed.
+                       Sourceless block "XLXI_4/Mcount_rst_counter_cy<7>_rt" (ROM) removed.
+                        The signal "XLXI_4/Mcount_rst_counter_cy<7>_rt" is sourceless and has been
+removed.
+                 Sourceless block "XLXI_4/Mcount_rst_counter_xor<6>" (XOR) removed.
+                  The signal "XLXI_4/Result<6>" is sourceless and has been removed.
+                   Sourceless block "XLXI_4/rst_counter_6" (SFF) removed.
+                    The signal "XLXI_4/rst_counter<6>" is sourceless and has been removed.
+                     Sourceless block "XLXI_4/Mcount_rst_counter_cy<6>_rt" (ROM) removed.
+                      The signal "XLXI_4/Mcount_rst_counter_cy<6>_rt" is sourceless and has been
+removed.
+               Sourceless block "XLXI_4/Mcount_rst_counter_xor<5>" (XOR) removed.
+                The signal "XLXI_4/Result<5>" is sourceless and has been removed.
+                 Sourceless block "XLXI_4/rst_counter_5" (SFF) removed.
+                  The signal "XLXI_4/rst_counter<5>" is sourceless and has been removed.
+                   Sourceless block "XLXI_4/Mcount_rst_counter_cy<5>_rt" (ROM) removed.
+                    The signal "XLXI_4/Mcount_rst_counter_cy<5>_rt" is sourceless and has been
+removed.
+             Sourceless block "XLXI_4/Mcount_rst_counter_xor<4>" (XOR) removed.
+              The signal "XLXI_4/Result<4>" is sourceless and has been removed.
+               Sourceless block "XLXI_4/rst_counter_4" (SFF) removed.
+                The signal "XLXI_4/rst_counter<4>" is sourceless and has been removed.
+                 Sourceless block "XLXI_4/Mcount_rst_counter_cy<4>_rt" (ROM) removed.
+                  The signal "XLXI_4/Mcount_rst_counter_cy<4>_rt" is sourceless and has been
+removed.
+           Sourceless block "XLXI_4/Mcount_rst_counter_xor<3>" (XOR) removed.
+            The signal "XLXI_4/Result<3>" is sourceless and has been removed.
+             Sourceless block "XLXI_4/rst_counter_3" (SFF) removed.
+              The signal "XLXI_4/rst_counter<3>" is sourceless and has been removed.
+               Sourceless block "XLXI_4/Mcount_rst_counter_cy<3>_rt" (ROM) removed.
+                The signal "XLXI_4/Mcount_rst_counter_cy<3>_rt" is sourceless and has been
+removed.
+         Sourceless block "XLXI_4/Mcount_rst_counter_xor<2>" (XOR) removed.
+          The signal "XLXI_4/Result<2>" is sourceless and has been removed.
+           Sourceless block "XLXI_4/rst_counter_2" (SFF) removed.
+            The signal "XLXI_4/rst_counter<2>" is sourceless and has been removed.
+             Sourceless block "XLXI_4/Mcount_rst_counter_cy<2>_rt" (ROM) removed.
+              The signal "XLXI_4/Mcount_rst_counter_cy<2>_rt" is sourceless and has been
+removed.
+       Sourceless block "XLXI_4/Mcount_rst_counter_xor<1>" (XOR) removed.
+        The signal "XLXI_4/Result<1>" is sourceless and has been removed.
+         Sourceless block "XLXI_4/rst_counter_1" (SFF) removed.
+          The signal "XLXI_4/rst_counter<1>" is sourceless and has been removed.
+           Sourceless block "XLXI_4/Mcount_rst_counter_cy<1>_rt" (ROM) removed.
+            The signal "XLXI_4/Mcount_rst_counter_cy<1>_rt" is sourceless and has been
+removed.
+     Sourceless block "XLXI_4/Mcount_rst_counter_xor<0>" (XOR) removed.
+      The signal "XLXI_4/Result<0>" is sourceless and has been removed.
+Unused block "XLXI_4/SW_OK_0" (FF) removed.
+Unused block "XLXI_4/SW_OK_1" (FF) removed.
+Unused block "XLXI_4/SW_OK_2" (FF) removed.
+Unused block "XLXI_4/SW_OK_3" (FF) removed.
+Unused block "XLXI_4/SW_OK_4" (FF) removed.
+Unused block "XLXI_4/SW_OK_5" (FF) removed.
+Unused block "XLXI_4/pulse" (SFF) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XLXI_4/XST_GND
+VCC 		XLXI_4/XST_VCC
+GND 		XST_GND
+VCC 		XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| BTN<0>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| BTN<1>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| BTN<2>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| BTN<3>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SW<0>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SW<1>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SW<2>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SW<3>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SW<4>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SW<5>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SW<6>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SW<7>                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| clk50mhz                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| hsync                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| vga_b                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OFF1         |          |          |
+| vga_g                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OFF1         |          |          |
+| vga_r                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OFF1         |          |          |
+| vsync                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

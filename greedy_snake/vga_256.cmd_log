@@ -1,0 +1,2 @@
+vhdtdtfi -lib work E:/greedy_snake/VGA.v -lang verilog -prj greedy_snake -o vga_256.spl -module vga_256 -template E:/ISE14-4/14.4/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 vga_256.spl E:/greedy_snake/vga_256.sym 
